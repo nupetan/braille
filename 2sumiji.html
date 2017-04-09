@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset='utf-8'>
+	<title>墨字変換</title>
+	<script type="text/javascript" src="tosumi.js"></script>
+	<style>
+		textarea{resize: none}
+	</style>
+	</head>
+	<body>
+	<h1>墨字変換</h1>
+	<form>
+		<textarea id="l" autocomplete ="on" autofocus cols="50" form
+		maxlength="65535" minlength="0" name="o" required rows="10"
+		selectionDirection="forward" spellcheck="true" wrap="hard"
+		placeholder='ここに点字を入力してください'></textarea>
+		<textarea id="m" name="p" rows="10" cols="50" wrap="hard" disabled
+		placeholder='ここに墨字が表示されます' readonly></textarea>
+	</form>
+<!--6点点字のすべての組み合わせ
+⠀⠁⠂⠃⠄⠅⠆⠇⠈⠉⠊⠋⠌⠍⠎⠏
+⠐⠑⠒⠓⠔⠕⠖⠗⠘⠙⠚⠛⠜⠝⠞⠟
+⠠⠡⠢⠣⠤⠥⠦⠧⠨⠩⠪⠫⠬⠭⠮⠯
+⠰⠱⠲⠳⠴⠵⠶⠷⠸⠹⠺⠻⠼⠽⠾⠿
+ -->
+	<p id="r">残り65535文字</p>
+	<p>左のテキストエリアに入力された点字をひらがな（外来語を由来とする音の一部はカタカナ）に変換します</p>
+	<ul>注意！
+		<li>変換機能はソースコード内の連想配列により定義された文字に従います
+		<li>漢点字、数字、外字符などこれに類する点字は変換できません
+		<li>⠖は「！」か「ゑ」を表しますから、前後の文より適切に置き換えてください
+	</ul>
+	<h2>サンプル</h2>
+	<p>Q:政治に興味があるなんて、なんて暇な人なんだろうね？</p>
+	<p>A:<span style="border:1px solid #ccc;border-radius:5px;background-color:#fafafa;">⠺⠾⠺⠾　⠻⠃⠐⠳⠇　⠈⠪⠒⠷⠐⠡　⠁⠙⠧⠞⠥　⠷⠴⠅　⠧⠵⠅⠎⠡</span></p>
+	<p>解説<span style="border:1px solid #ccc;border-radius:5px;background-color:#fafafa;">⠕⠘⠹⠒⠳⠝⠾⠴⠎　⠐⠪⠘⠭⠒　⠇⠥　⠣⠔⠝⠫⠜⠉</span><br>
+		<span style="border:1px solid #ccc;border-radius:5px;background-color:#fafafa;">⠵⠗⠐⠡⠂⠕　⠐⠻⠴⠟⠃⠔　⠧⠟⠃　⠳⠅⠃⠵⠵　⠪⠕⠋⠟⠳⠵⠉⠞　⠭⠓⠇⠅⠙⠐⠺</span><br>
+		<span style="border:1px solid #ccc;border-radius:5px;background-color:#fafafa;">⠪⠪⠐⠟　⠡⠩⠛⠕　⠐⠻⠴⠟⠃⠇　⠣⠐⠡⠝⠫⠐⠥　⠁⠃⠟⠇　⠻⠝⠿⠃⠻⠣⠇⠴⠔　⠊⠳⠝⠫⠙⠪⠞⠐⠡　⠐⠟⠣⠙</span>
+	</p>
+	<p><a href="2braille.html">点字</a></p>
+	</body>
+</html>

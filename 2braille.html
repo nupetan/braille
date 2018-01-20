@@ -1,56 +1,58 @@
 ﻿<!DOCTYPE html>
 <html>
-	<head>
-	<meta charset='utf-8'>
-	<title>点字変換</title>
-	<script type="text/javascript" src="tobrl.js"></script>
-	<style>
-		textarea{resize: none}
-	</style>
-	</head>
-	<body>
-	<h1>点字変換</h1>
-	<form>
-		<textarea id="l" autocomplete ="on" autofocus cols="50" form
-		maxlength="1024" minlength="0" name="o" required rows="10"
-		selectionDirection="forward" spellcheck="true" wrap="hard"
-		placeholder='ここにテキストを入力してください'></textarea>
-		<textarea id="m" name="p" rows="10" cols="50" wrap="hard" disabled
-		placeholder='ここに点字が表示されます' readonly></textarea>
-	</form>
+
+<head>
+<meta charset="utf-8">
+<title>点字変換器</title>
+<script type="text/javascript" src="tobrl.js"></script>
+<style>
+textarea{resize: none}
+</style>
+</head>
+
+<body>
+<h1>点字変換器</h1>
+<form>
+<textarea id="l" autocomplete ="on" autofocus cols="50" form
+maxlength="1024" minlength="0" name="o" required rows="10"
+selectiondirection="forward" spellcheck="true" wrap="hard"
+placeholder="ここにテキストを入力してください"></textarea>
+<textarea id="m" name="p" rows="10" cols="50" wrap="hard"
+placeholder="ここに点字が表示されます" readonly></textarea>
+</form>
+<p>ご利用になる前に<a href="EULA.html">利用規約</a>を必ずお読みください．ご利用と同時にこの規約に同意したとみなされます</p>
+<p>左のテキストエリアに入力されたひらがな、カタカナを点字に変換します</p>
+<ul>
+	<li>変換機能は<a href="tobrl.js">ソースコード</a>内の連想配列により定義された文字に従います</li>
+	<li>ヿ（コトの合略仮名）は「⠪⠞」とします</li>
+	<li>ゟ（よりの合略仮名）は「⠜⠓」とします</li>
+	<li>𪜈（ともの合略仮名）は変換しません</li>
+	<li>〼（～ます）は「⠵⠹」とします</li>
+	<li>？（クエスチョン・マーク）は日本語で⠢,英語で⠦となります</li>
+	<li>入力する前に分かち書きなど点字の書き方に即したテキストをご用意ください</li>
+</ul>
+<p>台湾語仮名，アイヌ語仮名，沖縄方言の表記体系はサポートしません</p>
+<p>次に掲げる仮名は点字が未熟な表記体系のため変換することができません</p>
+<ul>
+	<li>ミェ,みぇ</li>
+	<li>リェ,りぇ</li>
+	<li>ギェ,ぎぇ</li>
+	<li>ヂェ,ぢぇ</li>
+	<li>ビェ,びぇ</li>
+	<li>ピェ,ぴぇ</li>
+	<li>単独としての捨て仮名</li>
+	<li><span style="margin-left:1em;">ぁ、ぃ、ぅ、ぇ、ぉ</span></li>
+	<li>セ゚,せ゚</li>
+	<li>ツ゚,つ゚</li>
+	<li>ト゚,と゚</li>
+	<li><span style="margin-left:1em;">ゎゕゖヵヶㇰㇱㇲㇳㇴㇵㇶㇷㇸㇹㇺㇻㇼㇽㇾㇿ</span></li>
+</ul>
+<p><a href="2sumiji.html">墨字変換器</a></p>
+</body>
+</html>
 <!--6点点字のすべての組み合わせ
 ⠀⠁⠂⠃⠄⠅⠆⠇⠈⠉⠊⠋⠌⠍⠎⠏
 ⠐⠑⠒⠓⠔⠕⠖⠗⠘⠙⠚⠛⠜⠝⠞⠟
 ⠠⠡⠢⠣⠤⠥⠦⠧⠨⠩⠪⠫⠬⠭⠮⠯
 ⠰⠱⠲⠳⠴⠵⠶⠷⠸⠹⠺⠻⠼⠽⠾⠿
- -->
-	<p id="r">残り1024文字</p>
-	<p>左のテキストエリアに入力されたひらがな、カタカナを点字に変換します</p>
-	<ul>注意！
-		<li>変換機能はソースコード内の連想配列により定義された文字に従います
-		<li>ヿ（コトの合略仮名）は「⠪⠞」とします
-		<li>ゟ（よりの合略仮名）は「⠜⠓」とします
-		<li>𪜈（ともの合略仮名）は搭載していません
-		<li>〼（～ます）は「⠵⠹」とします
-		<li>？（クエスチョン・マーク）は日本語で⠢、英語で⠦となります
-		<li>入力する前に分かち書きなど、点字の書き方に即したテキストをご用意ください
-	</ul>
-	<p>台湾語仮名、アイヌ語仮名、沖縄方言の表記体系はサポートしません</p>
-	<p>次に掲げる仮名は点字が未熟な表記体系のため変換することができません</p>
-	<ul>
-		<li>ミェ,みぇ
-		<li>リェ,りぇ
-		<li>ギェ,ぎぇ
-		<li>ヂェ,ぢぇ
-		<li>ビェ,びぇ
-		<li>ピェ,ぴぇ
-		<li>単独としての捨て仮名
-		<li><span style="margin-left:1em;">ぁ、ぃ、ぅ、ぇ、ぉ</span>
-		<li>セ゚,せ゚
-		<li>ツ゚,つ゚
-		<li>ト゚,と゚
-		<li><span style="margin-left:1em;">ゎゕゖヵヶㇰㇱㇲㇳㇴㇵㇶㇷㇸㇹㇺㇻㇼㇽㇾㇿ</span>
-	</ul>
-	<p><a href="2sumiji.html">墨字</a></p>
-	</body>
-</html>
+-->

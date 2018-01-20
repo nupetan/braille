@@ -24,4 +24,3 @@ Issuesに無い（＝私にとって未知）の欠陥が存在しているこ�
 
 ## 謝辞
 https://cdn.rawgit.com/ の管理者に感謝します。
-<script>alert("hlo");</script>

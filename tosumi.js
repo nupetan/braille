@@ -63,29 +63,35 @@ var a={
 //b:未定義
 //c:入力されたテキスト
 //d:点字をひらがなに変換する処理のループ
-//e:2文字合致を判断する文字列
+//e:3文字合致を判断する文字列
 /*fは関数名*/
-//g:1文字合致を判断する文字
-//h:出力文字
+//g:2文字合致を判断する文字
+//h:1文字合致を判断する文字
+//i:出力文字
 //l:textareaの入力部id
 //m:textareaの出力部id
 function f(){
-var c,e,g,i,j,k,r,x,y;
-var d=0,h="";
+var c,e,g,h;
+var d=0,i="";
 c=document.getElementById("l");
 //点字をひらがなに変換する処理
 for(;d<c.value.length;d++){
-	e=g=c.value.charAt(d);//1文字を格納
-	e+=c.value.charAt(d+1); //2文字を格納
-	if(a[e]!==undefined){//2文字合致
-		h+=a[e];
+	e=g=h=c.value.charAt(d);//1文字を格納
+	e=g+=c.value.charAt(d+1);//2文字を格納
+	e+=c.value.charAt(d+2);//3文字を格納
+	if(a[e]!==undefined){//3文字合致
+		i+=a[e];
+		d=d+2;
+	}
+	else if(a[g]!==undefined){//2文字合致
+		i+=a[g];
 		d++;
 	}
-	else if(a[g]!==undefined)//1文字合致
-		h+=a[g];
+	else if(a[h]!==undefined)//1文字合致
+		i+=a[h];
 	else//入力文字に対応した墨字が無ければ入力文字をそのまま表示
-		h+=g;
+		i+=h;
 }
-	m.value=h;
+	m.value=i;
 }
 window.setInterval(f,70);
